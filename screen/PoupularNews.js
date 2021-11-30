@@ -16,11 +16,11 @@ import {
 import { Icon } from "react-native-elements";
 import News from "../componemt/News";
 import Carousel from "react-native-snap-carousel";
+import Search from "../componemt/Search";
 
 const { width } = Dimensions.get("window");
 
 export default function PoupularNews({ navigation, props }) {
-  const [searchKey, setSearchKey] = useState("");
   const [data, setData] = useState([]);
 
   //-------------------------------------------------------------------------//
@@ -41,32 +41,8 @@ export default function PoupularNews({ navigation, props }) {
 
   return (
     <SafeAreaView style={{ flex: 1, padding: 24, backgroundColor: "#FBF9F6" }}>
-      <View style={styles.inputWrap}>
-        {/*搜尋功能*/}
-        <TextInput
-          style={styles.inputStyle}
-          onChangeText={(text) => setSearchKey(text)}
-          placeholder={"搜尋"}
-          value={searchKey}
-        />
-        <TouchableOpacity
-          style={styles.buttonStyle}
-          onPress={() =>
-            navigation.navigate("SearchResult", { key: searchKey })
-          }
-        >
-          <Icon name="search-outline" type="ionicon" />
-        </TouchableOpacity>
-      </View>
-      <View>
-        <TouchableOpacity onPress={() => navigation.navigate("Intro")}>
-          <Image
-            style={{ alignSelf: "flex-end", marginRight: 25, margin: 10 }}
-            source={require("../assets/questions.png")}
-          />
-        </TouchableOpacity>
-        {/*搜尋功能end*/}
-
+        <Search navigation={navigation}></Search>
+        <View>
         <Text style={styles.text}>熱門新聞</Text>
       </View>
       <Carousel

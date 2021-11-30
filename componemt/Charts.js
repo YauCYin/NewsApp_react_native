@@ -25,7 +25,7 @@ const Chart = ({ item }) => {
           <Text style={styles.h2}>
             <Image
               
-              source={require("../assets/Bluesquare.png")}
+              source={require("../assets/Greensquare.png")}
             />
             正向
           </Text>
@@ -33,6 +33,7 @@ const Chart = ({ item }) => {
         <View>
           <Text style={styles.h2}>
             <Image
+              
               source={require("../assets/Redsquare.png")}
             />
             反向
@@ -44,7 +45,7 @@ const Chart = ({ item }) => {
           height={400}
           startAngle={90}
           endAngle={-90}
-          colorScale={["#f07167", "#0081a7"]}
+          colorScale={["#f07167", "#36D08D"]}
           data={[
             { x: bad, y: bad },
             { x: good, y: good },

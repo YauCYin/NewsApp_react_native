@@ -50,7 +50,7 @@ export default function News({ navigation, item }) {
         <Card style={styles.CardOFCFT}>
           <Text style={styles.classification}>{item.Classification}</Text>
         </Card>
-        <Rell />
+        {Rell()}
       </View>
       <Text style={styles.description}>{item.Summary || "Read more..."}</Text>
       <View style={styles.ViewOfSource}>

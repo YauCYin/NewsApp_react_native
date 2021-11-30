@@ -25,7 +25,7 @@ export default function SearchResult({ navigation, route }) {
   //-------------------------------------------------------------------------//
   //  點擊跳轉到'NewsDetails'
   const showNoticeDetail = (item) => {
-    navigation.navigate("NewsDetails", (item = { item }));
+    navigation.navigate("NewsDetailsForKw", (item = { item }));
   };
 
   return (

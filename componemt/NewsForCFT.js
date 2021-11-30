@@ -51,7 +51,7 @@ export default function NewsForPF({ item }) {
       <Text style={styles.text}>{item.Title}</Text>
 
       <Text style={styles.description}> {item.Summary || "Read more..."}</Text>
-      <Rell />
+      {Rell()}
       <View
         style={{
           flexDirection: "row",
