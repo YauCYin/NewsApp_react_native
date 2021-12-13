@@ -10,10 +10,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   View,
-  TextInput,
-  Image,
 } from "react-native";
-import { Icon } from "react-native-elements";
 import News from "../componemt/News";
 import Carousel from "react-native-snap-carousel";
 import Search from "../componemt/Search";

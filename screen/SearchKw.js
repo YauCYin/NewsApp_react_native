@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { FlatList, TouchableOpacity, StyleSheet,Dimensions,Text,SafeAreaView,View } from "react-native";
 import NewsForCFT from "../componemt/NewsForCFT";
 
-export default function SearchResult({ navigation, route }) {
+export default function SearchKw({ navigation, route }) {
   const searchkey = route.params.key || "nothing get";
   const [data, setData] = useState([]);
 
@@ -25,7 +25,7 @@ export default function SearchResult({ navigation, route }) {
   //-------------------------------------------------------------------------//
   //  點擊跳轉到'NewsDetails'
   const showNoticeDetail = (item) => {
-    navigation.navigate("NewsDetails", (item = { item }));
+    navigation.navigate("NewsDetailsForKw", (item = { item }));
   };
 
   const IsNull = () =>{

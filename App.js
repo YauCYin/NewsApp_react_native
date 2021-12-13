@@ -11,6 +11,7 @@ import Classification from "./screen/Classification";
 import ApiForCFT from "./componemt/ApiForCFT";
 import SearchResult from "./screen/SearchResult";
 import Intro from "./screen/intro";
+import SearchKw from "./screen/SearchKw";
 import NewsDetailsForKw from "./screen/NewsDetailsForKw";
 
 const Tab = createBottomTabNavigator();
@@ -36,6 +37,11 @@ function HomeStark() {
       <Stack.Screen
         name="SearchResult"
         component={SearchResult}
+        options={{ title: "搜尋" }}
+      />
+      <Stack.Screen
+        name="SearchKw"
+        component={SearchKw}
         options={{ title: "搜尋" }}
       />
       <Stack.Screen
@@ -73,8 +79,8 @@ function classification() {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="SearchResult"
-        component={SearchResult}
+        name="SearchKw"
+        component={SearchKw}
         options={{ title: "搜尋" }}
       />
       <Stack.Screen

@@ -95,7 +95,7 @@ export default function NewsDetailsForKw({ route, navigation }) {
       );
     }
   };
-
+  
   return (
     <View style={styles.content}>
       <View style={{ margin: 10 }}>

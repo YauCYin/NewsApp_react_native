@@ -23,7 +23,7 @@ export default function Keyword(props){
               renderItem={({ item }) => {
                 return(
                   <TouchableOpacity
-                    onPress={() =>navigation.navigate("SearchResult", { key: item.keyword })}
+                    onPress={() =>navigation.navigate("SearchKw", { key: item.keyword })}
                   >
                     <Text style={styles.kw}>{item.keyword}</Text>
                   </TouchableOpacity>

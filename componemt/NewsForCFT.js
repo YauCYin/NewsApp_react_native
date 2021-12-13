@@ -14,39 +14,43 @@ export default function NewsForPF({ item }) {
   //----------------------------------------------------------------------//
   //  新聞的真實程度
   const Rell = () => {
-    if (item.Reliability <= 33 && item.Reliability >=1 ) {
+    if (item.Reliability <= 33 && item.Reliability >= 1) {
       return (
-        <Image
-          style={{ alignSelf: "flex-end", marginRight: 25 }}
-          source={require("../assets/bad.png")}
-        />
+        <View style={{ alignSelf: "flex-end",flexDirection: "row",marginBottom:15 }}>
+          <Image
+            source={require("../assets/bad.png")}
+          />
+          <Text style={{marginLeft:5,marginRight: 10 ,marginTop:8, color:"red" }}>{item.Reliability}%</Text>
+        </View>
       );
     } else if (item.Reliability >= 34 && item.Reliability <= 67) {
       return (
-        <Image
-          style={{ alignSelf: "flex-end", marginRight: 25 }}
-          source={require("../assets/medium.png")}
-        />
+        <View style={{ alignSelf: "flex-end",flexDirection: "row",marginBottom:15 }}>
+          <Image
+            source={require("../assets/medium.png")}
+          />
+          <Text style={{marginLeft:5,marginRight: 10 ,marginTop:8, color:"#DCB731" }}>{item.Reliability}%</Text>
+        </View>
       );
     } else if (item.Reliability >= 68 && item.Reliability <= 100) {
       return (
-        <Image
-          style={{ alignSelf: "flex-end", marginRight: 25 }}
-          source={require("../assets/good.png")}
-        />
+        <View style={{ alignSelf: "flex-end",flexDirection: "row",marginBottom:15 }}>
+          <Image
+            source={require("../assets/good.png")}
+          />
+          <Text style={{marginLeft:5,marginRight: 10 ,marginTop:8, color:"green" }}>{item.Reliability}%</Text>
+        </View>
       );
-    } else  {
+    } else {
       return (
         <Image
-          style={{ alignSelf: "flex-end", marginRight: 25 }}
+          style={{ alignSelf: "flex-end", marginRight: 25, margin: 15 }}
           source={require("../assets/error.png")}
         />
       );
-    
     }
   };
-
-  return (
+                                                                                                                                                                                                                                                                                                                                  return (
     <Card style={styles.container}>
       <Text style={styles.text}>{item.Title}</Text>
 

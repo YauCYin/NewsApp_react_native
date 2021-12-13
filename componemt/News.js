@@ -3,9 +3,12 @@
 //****************************************//
 
 import React from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity,Dimensions } from "react-native";
 import { Card } from "react-native-paper";
 import moment from "moment";
+
+const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 
 export default function News({ navigation, item }) {
   const time = moment(item.Date || moment.now()).fromNow();
@@ -15,24 +18,30 @@ export default function News({ navigation, item }) {
   const Rell = () => {
     if (item.Reliability <= 33 && item.Reliability >= 1) {
       return (
-        <Image
-          style={{ alignSelf: "flex-end", marginRight: 25, margin: 15 }}
-          source={require("../assets/bad.png")}
-        />
+        <View style={{ alignSelf: "flex-end",flexDirection: "row",marginBottom:15 }}>
+          <Image
+            source={require("../assets/bad.png")}
+          />
+          <Text style={{marginLeft:5,marginRight: 10 ,marginTop:8, color:"red" }}>{item.Reliability}%</Text>
+        </View>
       );
     } else if (item.Reliability >= 34 && item.Reliability <= 67) {
       return (
-        <Image
-          style={{ alignSelf: "flex-end", marginRight: 25, margin: 15 }}
-          source={require("../assets/medium.png")}
-        />
+        <View style={{ alignSelf: "flex-end",flexDirection: "row",marginBottom:15 }}>
+          <Image
+            source={require("../assets/medium.png")}
+          />
+          <Text style={{marginLeft:5,marginRight: 10 ,marginTop:8, color:"#DCB731" }}>{item.Reliability}%</Text>
+        </View>
       );
     } else if (item.Reliability >= 68 && item.Reliability <= 100) {
       return (
-        <Image
-          style={{ alignSelf: "flex-end", marginRight: 25, margin: 15 }}
-          source={require("../assets/good.png")}
-        />
+        <View style={{ alignSelf: "flex-end",flexDirection: "row",marginBottom:15 }}>
+          <Image
+            source={require("../assets/good.png")}
+          />
+          <Text style={{marginLeft:5,marginRight: 10 ,marginTop:8, color:"green" }}>{item.Reliability}%</Text>
+        </View>
       );
     } else {
       return (
@@ -64,7 +73,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
     marginHorizontal: 10,
-    height: 530,
+    height: windowHeight*0.58,
     width: 300,
     borderColor: "#CEBCB6",
     borderWidth: 1,

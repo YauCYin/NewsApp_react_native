@@ -39,7 +39,12 @@ const CommentBox = ({ item }) => {
   };
 
   if (item != "!") {
-    const color = 0 === item.sentiment ? "#f07167" : "#36D08D";
+    const color =
+      0 === item.sentiment
+        ? "#f07167"
+        : 1 === item.sentiment
+        ? "#36D08D"
+        : "#FFD83C";
     return (
       <SafeAreaView>
         <Card

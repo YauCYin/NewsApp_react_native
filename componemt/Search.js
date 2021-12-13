@@ -48,8 +48,8 @@ export default function Search(props) {
 const styles = StyleSheet.create({
     inputWrap: {
       width: "100%",
-      borderWidth: 1,
-      borderColor: "#ccc",
+      borderWidth: 1.5,
+      borderColor: "#D1C0B7",
       paddingVertical: 8,
       display: "flex",
       flexDirection: "row",
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
       flex: 1 / 5,
       color: "#F5EDE6",
       borderLeftWidth: 2,
-      borderLeftColor: "#ccc",
+      borderLeftColor: "#D1C0B7",
     },
     buttonTextStyle: {
       textAlign: "center",
