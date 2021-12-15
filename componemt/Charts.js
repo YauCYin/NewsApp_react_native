@@ -23,19 +23,13 @@ const Chart = ({ item }) => {
       <View style={{ height: 300, marginTop: 20 }}>
         <View>
           <Text style={styles.h2}>
-            <Image
-              
-              source={require("../assets/Greensquare.png")}
-            />
+            <Image source={require("../assets/Greensquare.png")} />
             正向
           </Text>
         </View>
         <View>
           <Text style={styles.h2}>
-            <Image
-              
-              source={require("../assets/Redsquare.png")}
-            />
+            <Image source={require("../assets/Redsquare.png")} />
             反向
           </Text>
         </View>

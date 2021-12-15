@@ -2,13 +2,7 @@
 //          評論卡片和按讚功能
 //****************************************//
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  SafeAreaView,
-  View,
-  TouchableOpacity,
-  Text,
-} from "react-native";
+import { SafeAreaView, View, TouchableOpacity, Text } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { Card, Paragraph } from "react-native-paper";
 

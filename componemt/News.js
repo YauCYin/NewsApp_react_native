@@ -3,7 +3,7 @@
 //****************************************//
 
 import React from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity,Dimensions } from "react-native";
+import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
 import { Card } from "react-native-paper";
 import moment from "moment";
 
@@ -18,29 +18,68 @@ export default function News({ navigation, item }) {
   const Rell = () => {
     if (item.Reliability <= 33 && item.Reliability >= 1) {
       return (
-        <View style={{ alignSelf: "flex-end",flexDirection: "row",marginBottom:15 }}>
-          <Image
-            source={require("../assets/bad.png")}
-          />
-          <Text style={{marginLeft:5,marginRight: 10 ,marginTop:8, color:"red" }}>{item.Reliability}%</Text>
+        <View
+          style={{
+            alignSelf: "flex-end",
+            flexDirection: "row",
+            marginBottom: 15,
+          }}
+        >
+          <Image source={require("../assets/bad.png")} />
+          <Text
+            style={{
+              marginLeft: 5,
+              marginRight: 10,
+              marginTop: 8,
+              color: "red",
+            }}
+          >
+            {item.Reliability}%
+          </Text>
         </View>
       );
     } else if (item.Reliability >= 34 && item.Reliability <= 67) {
       return (
-        <View style={{ alignSelf: "flex-end",flexDirection: "row",marginBottom:15 }}>
-          <Image
-            source={require("../assets/medium.png")}
-          />
-          <Text style={{marginLeft:5,marginRight: 10 ,marginTop:8, color:"#DCB731" }}>{item.Reliability}%</Text>
+        <View
+          style={{
+            alignSelf: "flex-end",
+            flexDirection: "row",
+            marginBottom: 15,
+          }}
+        >
+          <Image source={require("../assets/medium.png")} />
+          <Text
+            style={{
+              marginLeft: 5,
+              marginRight: 10,
+              marginTop: 8,
+              color: "#DCB731",
+            }}
+          >
+            {item.Reliability}%
+          </Text>
         </View>
       );
     } else if (item.Reliability >= 68 && item.Reliability <= 100) {
       return (
-        <View style={{ alignSelf: "flex-end",flexDirection: "row",marginBottom:15 }}>
-          <Image
-            source={require("../assets/good.png")}
-          />
-          <Text style={{marginLeft:5,marginRight: 10 ,marginTop:8, color:"green" }}>{item.Reliability}%</Text>
+        <View
+          style={{
+            alignSelf: "flex-end",
+            flexDirection: "row",
+            marginBottom: 15,
+          }}
+        >
+          <Image source={require("../assets/good.png")} />
+          <Text
+            style={{
+              marginLeft: 5,
+              marginRight: 10,
+              marginTop: 8,
+              color: "green",
+            }}
+          >
+            {item.Reliability}%
+          </Text>
         </View>
       );
     } else {
@@ -73,7 +112,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
     marginHorizontal: 10,
-    height: windowHeight*0.58,
+    height: windowHeight * 0.58,
     width: 300,
     borderColor: "#CEBCB6",
     borderWidth: 1,

@@ -10,9 +10,6 @@ import {
   StyleSheet,
   View,
   Image,
-  KeyboardAvoidingView,
-  TouchableWithoutFeedback,
-  Keyboard,
 } from "react-native";
 import Rel from "./Authenticity";
 import Chart from "./Charts";

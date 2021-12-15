@@ -9,7 +9,6 @@ import {
   Image,
   Dimensions,
   SafeAreaView,
-  Text,
 } from "react-native";
 
 import Swiper from "react-native-swiper";
