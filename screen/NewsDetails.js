@@ -27,6 +27,8 @@ export default function NewsDetails({ route, navigation }) {
   const [newcomment, setNewcomment] = useState("");
   const publishedDate = moment(item.Date).format("dddd D MMMM YYYY");
   const [test, setTest] = useState("have");
+  const id = item.News_id;
+  const provenance = item.Provenance;
 
   //GET新聞評論
   const urlcomment = "http://140.134.26.31:3000/api/comment//getComment/";
@@ -144,7 +146,14 @@ export default function NewsDetails({ route, navigation }) {
             keyExtractor={(news, index) => index.toString()}
             removeClippedSubviews={true}
             renderItem={({ item }) => {
-              return <CommentBox item={item} />; //評論顯示
+              return (
+                <CommentBox
+                  item={item}
+                  id={id}
+                  provenance={provenance}
+                  like={item.likes}
+                />
+              ); //評論顯示
             }}
           />
         </KeyboardAvoidingView>

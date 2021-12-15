@@ -1,41 +1,74 @@
 //*****************************************//
-//                評論卡片
+//          評論卡片和按讚功能
 //****************************************//
 import React, { useState } from "react";
-import { StyleSheet, SafeAreaView, View, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  SafeAreaView,
+  View,
+  TouchableOpacity,
+  Text,
+} from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { Card, Paragraph } from "react-native-paper";
 
-const CommentBox = ({ item }) => {
+const CommentBox = ({ item, id, provenance, like }) => {
   const [heartcolor, setHeartcolor] = useState("black");
-  const [heartname, SetHeartname] = useState("hearto");
-  const [count, setCount] = useState(0);
-  const [bordercolor, setBordercolor] = useState("");
-  //const [commentCount,setCommentCount] = useState(0)
+  const [heartname, setHeartname] = useState("hearto");
+  const [count, setCount] = useState(like);
+  const [flag, setFlag] = useState(true);
 
   const OnChange = () => {
-    SetHeartname("heart");
-    setHeartcolor("red");
-    setCount(count + 1);
+    if (flag === true) {
+      setFlag(false);
+      setHeartname("heart");
+      setHeartcolor("red");
+      setCount(count + 1);
 
-    // fetch("http://140.134.26.31:3000/api/comment/postComment", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     newsID: item.News_id,
-    //     provenance: item.Provenance,
-    //     comment: newcomment,
-    //   }),
-    // })
-    //   .then((res) => {
-    //     return res.json();
-    //   })
-    //   .then((result) => {
-    //     console.log(result)
-    //   });
+      fetch("http://140.134.26.31:3000/api/comment/likeComment", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          newsID: id,
+          provenance: provenance,
+          like: like + 1,
+          comment: item.comment,
+        }),
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then((result) => {
+          console.log(result);
+        });
+    } else if (flag == false) {
+      setFlag(true);
+      setHeartname("hearto");
+      setHeartcolor("black");
+      setCount(count - 1);
+      fetch("http://140.134.26.31:3000/api/comment/likeComment", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          newsID: id,
+          provenance: provenance,
+          like: like,
+          comment: item.comment,
+        }),
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then((result) => {
+          console.log(result);
+        });
+    }
   };
 
   if (item != "!") {
@@ -45,6 +78,7 @@ const CommentBox = ({ item }) => {
         : 1 === item.sentiment
         ? "#36D08D"
         : "#FFD83C";
+
     return (
       <SafeAreaView>
         <Card
@@ -59,15 +93,25 @@ const CommentBox = ({ item }) => {
           }}
         >
           <Card.Content>
-            <Paragraph style={{ fontSize: 15, lineHeight: 25 }}>
-              {item.comment}
-            </Paragraph>
-            {/*  <Paragraph  style={{alignSelf: "flex-end", margin:7}}>{count}</Paragraph>
-                    <TouchableOpacity
-                      onPress={OnChange}
-                    >
-                      <AntDesign  style={{alignSelf: "flex-end"}} name={heartname} size={20} color={heartcolor} />
-                    </TouchableOpacity> */}
+            <View
+              style={{ fontSize: 15, lineHeight: 25, flexDirection: "row" }}
+            >
+              <Paragraph style={{ flex: 3.5 / 4 }}>{item.comment}</Paragraph>
+
+              <View style={{ flex: 0.5 / 4 }}>
+                <Text style={{ alignSelf: "flex-end", margin: 7 }}>
+                  {count}
+                </Text>
+                <TouchableOpacity onPress={OnChange}>
+                  <AntDesign
+                    style={{ alignSelf: "flex-end" }}
+                    name={heartname}
+                    size={20}
+                    color={heartcolor}
+                  />
+                </TouchableOpacity>
+              </View>
+            </View>
           </Card.Content>
         </Card>
       </SafeAreaView>
