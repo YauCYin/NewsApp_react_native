@@ -93,7 +93,7 @@ const CommentBox = ({ item, id, provenance, like }) => {
               <Paragraph style={{ flex: 3.5 / 4 }}>{item.comment}</Paragraph>
 
               <View style={{ flex: 0.5 / 4 }}>
-                <Text style={{ alignSelf: "flex-end", margin: 7 }}>
+                <Text style={{ alignSelf: "flex-end", marginRight: 7, marginBottom:4 }}>
                   {count}
                 </Text>
                 <TouchableOpacity onPress={OnChange}>
