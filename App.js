@@ -1,9 +1,8 @@
 import React from "react";
-import { Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Entypo,Feather } from '@expo/vector-icons';
+import { Entypo, Feather } from "@expo/vector-icons";
 
 import PoupularNews from "./screen/PoupularNews";
 import NewsDetails from "./screen/NewsDetails";
@@ -28,7 +27,7 @@ function HomeStark() {
       }}
     >
       <Stack.Screen name="新聞小精靈" component={PoupularNews} />
-      
+
       <Stack.Screen
         name="Intro"
         component={Intro}
@@ -54,7 +53,6 @@ function HomeStark() {
         component={NewsDetails}
         options={{ headerShown: false }}
       />
-      
     </Stack.Navigator>
   );
 }
@@ -93,7 +91,6 @@ function classification() {
         component={NewsDetails}
         options={{ headerShown: false }}
       />
-      
     </Stack.Navigator>
   );
 }
@@ -106,22 +103,26 @@ export default function App() {
         screenOptions={({ route }) => ({
           tabBarIcon: ({ color }) => {
             if (route.name == "首頁") {
-              return (
-                <Entypo name="home" size={30} color={color}/>
-              );
+              return <Entypo name="home" size={30} color={color} />;
             } else if (route.name == "分類") {
-              return (
-                <Feather name="list" size={30} color={color}/>
-              );
+              return <Feather name="list" size={30} color={color} />;
             }
           },
-          tabBarInactiveTintColor:'gray',
-          tabBarActiveTintColor:'#624941',
-          tabBarStyle:{backgroundColor:'#F6EFE9'}
+          tabBarInactiveTintColor: "gray",
+          tabBarActiveTintColor: "#624941",
+          tabBarStyle: { backgroundColor: "#F6EFE9" },
         })}
       >
-        <Tab.Screen name="首頁" component={HomeStark} options={{ headerShown: false }}/>
-        <Tab.Screen name="分類" component={classification} options={{ headerShown: false }}/>
+        <Tab.Screen
+          name="首頁"
+          component={HomeStark}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name="分類"
+          component={classification}
+          options={{ headerShown: false }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );

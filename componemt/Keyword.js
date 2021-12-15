@@ -1,47 +1,46 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   FlatList,
   Text,
   SafeAreaView,
   StyleSheet,
   TouchableOpacity,
-  Image,
-} from "react-native"
+} from "react-native";
 
-export default function Keyword(props){
-    const keyword = props.item;
-    const navigation = props.navigation
+export default function Keyword(props) {
+  const keyword = props.item;
+  const navigation = props.navigation;
 
-    return (
-        <SafeAreaView style={styles.area}>
-            <FlatList
-              ListHeaderComponent={
-                <Text>關鍵詞：</Text>
+  return (
+    <SafeAreaView style={styles.area}>
+      <FlatList
+        ListHeaderComponent={<Text>關鍵詞：</Text>}
+        horizontal={true}
+        data={keyword}
+        renderItem={({ item }) => {
+          return (
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("SearchKw", { key: item.keyword })
               }
-              horizontal = {true}
-              data={keyword}
-              renderItem={({ item }) => {
-                return(
-                  <TouchableOpacity
-                    onPress={() =>navigation.navigate("SearchKw", { key: item.keyword })}
-                  >
-                    <Text style={styles.kw}>{item.keyword}</Text>
-                  </TouchableOpacity>
-                 ) 
-               }}
-              keyExtractor={(news, index) => index.toString()}
-            />
-        </SafeAreaView>
-    );
+            >
+              <Text style={styles.kw}>{item.keyword}</Text>
+            </TouchableOpacity>
+          );
+        }}
+        keyExtractor={(news, index) => index.toString()}
+      />
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
-  area:{
-    marginTop:20
+  area: {
+    marginTop: 20,
   },
-  kw:{
-    marginHorizontal:7,
-    textDecorationLine:"underline",
-    color:"blue"
-  }
-})
+  kw: {
+    marginHorizontal: 7,
+    textDecorationLine: "underline",
+    color: "blue",
+  },
+});

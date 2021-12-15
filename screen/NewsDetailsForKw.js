@@ -5,15 +5,10 @@
 import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
-  SafeAreaView,
   View,
   FlatList,
-  ScrollView,
   Alert,
-  Text,
   KeyboardAvoidingView,
-  TouchableWithoutFeedback,
-  Keyboard,
 } from "react-native";
 import { TextInput, Button, Surface, Paragraph } from "react-native-paper";
 
@@ -95,7 +90,7 @@ export default function NewsDetailsForKw({ route, navigation }) {
       );
     }
   };
-  
+
   return (
     <View style={styles.content}>
       <View style={{ margin: 10 }}>
