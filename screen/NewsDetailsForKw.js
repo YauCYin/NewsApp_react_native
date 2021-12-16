@@ -16,12 +16,14 @@ import moment from "moment";
 import CommentBox from "../componemt/CommentBox";
 import Details from "../componemt/Details";
 
-export default function NewsDetailsForKw({ route, navigation }) {
+export default function NewsDetails({ route, navigation }) {
   const { item } = route.params || "nothing get";
   const [commentdata, setCommentdata] = useState([]);
   const [newcomment, setNewcomment] = useState("");
   const publishedDate = moment(item.Date).format("dddd D MMMM YYYY");
   const [test, setTest] = useState("have");
+  const id = item.News_id;
+  const provenance = item.Provenance;
 
   //GET新聞評論
   const urlcomment = "http://140.134.26.31:3000/api/comment//getComment/";
@@ -59,6 +61,7 @@ export default function NewsDetailsForKw({ route, navigation }) {
             {
               comment: newcomment,
               likes: 0,
+              sentiment: 2
             },
           ].concat(commentdata);
           //把App使用者的評論加入到commentdata
@@ -139,7 +142,14 @@ export default function NewsDetailsForKw({ route, navigation }) {
             keyExtractor={(news, index) => index.toString()}
             removeClippedSubviews={true}
             renderItem={({ item }) => {
-              return <CommentBox item={item} />; //評論顯示
+              return (
+                <CommentBox
+                  item={item}
+                  id={id}
+                  provenance={provenance}
+                  like={item.likes}
+                />
+              ); //評論顯示
             }}
           />
         </KeyboardAvoidingView>

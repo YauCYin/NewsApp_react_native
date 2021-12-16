@@ -9,8 +9,9 @@ import { Card, Paragraph } from "react-native-paper";
 const CommentBox = ({ item, id, provenance, like }) => {
   const [heartcolor, setHeartcolor] = useState("black");
   const [heartname, setHeartname] = useState("hearto");
-  const [count, setCount] = useState(like);
+  const [count, setCount] = useState(item.likes || 0);
   const [flag, setFlag] = useState(true);
+
 
   const OnChange = () => {
     if (flag === true) {
@@ -64,6 +65,7 @@ const CommentBox = ({ item, id, provenance, like }) => {
         });
     }
   };
+  
 
   if (item != "!") {
     const color =
@@ -72,7 +74,7 @@ const CommentBox = ({ item, id, provenance, like }) => {
         : 1 === item.sentiment
         ? "#36D08D"
         : "#FFD83C";
-
+    
     return (
       <SafeAreaView>
         <Card
