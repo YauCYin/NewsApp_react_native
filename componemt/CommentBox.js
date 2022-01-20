@@ -12,7 +12,6 @@ const CommentBox = ({ item, id, provenance, like }) => {
   const [count, setCount] = useState(item.likes || 0);
   const [flag, setFlag] = useState(true);
 
-
   const OnChange = () => {
     if (flag === true) {
       setFlag(false);
@@ -65,7 +64,6 @@ const CommentBox = ({ item, id, provenance, like }) => {
         });
     }
   };
-  
 
   if (item != "!") {
     const color =
@@ -74,7 +72,7 @@ const CommentBox = ({ item, id, provenance, like }) => {
         : 1 === item.sentiment
         ? "#36D08D"
         : "#FFD83C";
-    
+
     return (
       <SafeAreaView>
         <Card
@@ -95,7 +93,13 @@ const CommentBox = ({ item, id, provenance, like }) => {
               <Paragraph style={{ flex: 3.5 / 4 }}>{item.comment}</Paragraph>
 
               <View style={{ flex: 0.5 / 4 }}>
-                <Text style={{ alignSelf: "flex-end", marginRight: 7, marginBottom:4 }}>
+                <Text
+                  style={{
+                    alignSelf: "flex-end",
+                    marginRight: 7,
+                    marginBottom: 4,
+                  }}
+                >
                   {count}
                 </Text>
                 <TouchableOpacity onPress={OnChange}>

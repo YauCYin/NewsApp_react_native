@@ -22,7 +22,7 @@ export default function Details(props) {
   const navigation = props.navigation;
 
   //-------------------------------------------------------------------//
-  //  GET新聞內文
+  //  GET新聞內文 //
   const url = "http://140.134.26.31:3000/api/news/getNewsDetail/";
   useEffect(() => {
     fetch(url + id, {

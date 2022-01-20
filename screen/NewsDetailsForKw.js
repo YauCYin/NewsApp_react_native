@@ -61,7 +61,7 @@ export default function NewsDetails({ route, navigation }) {
             {
               comment: newcomment,
               likes: 0,
-              sentiment: 2
+              sentiment: 2,
             },
           ].concat(commentdata);
           //把App使用者的評論加入到commentdata

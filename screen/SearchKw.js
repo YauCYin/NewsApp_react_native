@@ -3,7 +3,15 @@
 //****************************************//
 
 import React, { useEffect, useState } from "react";
-import { FlatList, TouchableOpacity, StyleSheet,Dimensions,Text,SafeAreaView,View } from "react-native";
+import {
+  FlatList,
+  TouchableOpacity,
+  StyleSheet,
+  Dimensions,
+  Text,
+  SafeAreaView,
+  View,
+} from "react-native";
 import NewsForCFT from "../componemt/NewsForCFT";
 
 export default function SearchKw({ navigation, route }) {
@@ -28,9 +36,9 @@ export default function SearchKw({ navigation, route }) {
     navigation.navigate("NewsDetailsForKw", (item = { item }));
   };
 
-  const IsNull = () =>{
-    if(data == "查無結果"){
-      return(
+  const IsNull = () => {
+    if (data == "查無結果") {
+      return (
         <SafeAreaView>
           <View style={styles.viewOfNull}>
             <Text
@@ -43,9 +51,9 @@ export default function SearchKw({ navigation, route }) {
             </Text>
           </View>
         </SafeAreaView>
-      )
-    }else{
-      return(
+      );
+    } else {
+      return (
         <FlatList
           style={{ flex: 1 }}
           data={data}
@@ -62,15 +70,15 @@ export default function SearchKw({ navigation, route }) {
             );
           }}
         />
-      )
+      );
     }
-  }
+  };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#FAF7F5" }}>
       {IsNull()}
     </SafeAreaView>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -85,8 +93,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     position: "absolute",
-    height: Dimensions.get("window").height*0.8,
+    height: Dimensions.get("window").height * 0.8,
     width: Dimensions.get("window").width,
   },
-  
 });
